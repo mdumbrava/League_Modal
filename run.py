@@ -5,7 +5,6 @@ from   datetime  import datetime
 from   flask     import make_response
 from   functools import wraps, update_wrapper
 
-
 app = Flask(
             __name__, 
             static_folder   = STATIC_FOLDER, 
@@ -18,40 +17,19 @@ if not LOG_FLASK:
 
 # this helps with caching
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 43200
+
 app.config['ENV'] = MODE
 
-# for x in app.config:
-#     print(str(x) + '\t' + str(app.config[x]))
-
-# this helps with route not caching files
-def nocache(view):
-    @wraps(view)
-    def no_cache(*args, **kwargs):
-        response = make_response(view(*args, **kwargs))
-        response.headers['Last-Modified'] = datetime.now()
-        response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
-        response.headers['Pragma'] = 'no-cache'
-        response.headers['Expires'] = '-1'
-        return response
-    return update_wrapper(no_cache, view)
-
 @app.route('/')
-@app.route('/ahri')
-@app.route('/akali')
-@app.route('/evelynn')
-@app.route('/kaisa')
-@app.route('/seraphine')
-# @nocache
 def index():
     return app.send_static_file('index.html')
 
 @app.route('/apileague/get_main')
 def get_commts():
-
     return      '''
-                [{"id": 1, "name": "name1", "pic": "pic1"}, 
-                 {"id": 2, "name": "name2", "pic": "pic2"}, 
-                 {"id": 3, "name": "name3", "pic": "pic3"}]
+                [{"id": 1, "name": "name1", "pic": "/static/media/pic1.jpg"}, 
+                 {"id": 2, "name": "name2", "pic": "/static/media/pic2.jpg"}, 
+                 {"id": 3, "name": "name3", "pic": "/static/media/pic3.jpg"}]
                 '''
 
 
