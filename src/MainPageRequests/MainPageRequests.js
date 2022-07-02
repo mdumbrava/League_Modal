@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MainPage from "./MainPage";
+import "./MainPageRequest.css";
 
 const MainPageRequest = () => {
   const [main, setMain] = useState([]);
@@ -19,8 +20,7 @@ const MainPageRequest = () => {
 
   return (
     <div>
-      <h1>Request</h1>
-      <div>
+      <div className="mainPageDiv">
         {main.map((champs) => (
           <MainPage character={champs} key={champs.id} />
         ))}

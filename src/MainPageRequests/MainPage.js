@@ -1,9 +1,13 @@
+import "./MainPage.css";
+
 const MainPage = ({ character, id }) => {
   return (
     <div>
-      <div className="comments">
-        <h3 key={id}>{character.name}</h3>
-        <p key={id}>{character.pic}</p>
+      <div className="championDiv">
+        <h3 className="championTitle" key={id}>
+          {character.name}
+        </h3>
+        <img className="championPic" alt="pics" key={id} src={character.pic} />
       </div>
     </div>
   );

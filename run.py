@@ -27,9 +27,10 @@ def index():
 @app.route('/apileague/get_main')
 def get_commts():
     return      '''
-                [{"id": 1, "name": "name1", "pic": "/static/media/pic1.jpg"}, 
-                 {"id": 2, "name": "name2", "pic": "/static/media/pic2.jpg"}, 
-                 {"id": 3, "name": "name3", "pic": "/static/media/pic3.jpg"}]
+                [{"id": 1, "name": "Caitlin", "pic": "/static/media/main/caitlin.jpg"}, 
+                 {"id": 2, "name": "Diana", "pic": "/static/media/main/diana.jpg"},
+                 {"id": 2, "name": "Morgana", "pic": "/static/media/main/morgana.jpg"}, 
+                 {"id": 3, "name": "Nami", "pic": "/static/media/main/nami.jpg"}]
                 '''
 
 
