@@ -13,3 +13,8 @@
     font-size: 25px;
     text-shadow: 1px 1px 2px rgb(5, 5, 5);
 }
+
+.buttonWrap{
+    position: "relative";
+    z-Index: 1;
+  }
