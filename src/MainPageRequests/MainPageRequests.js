@@ -22,7 +22,7 @@ const MainPageRequest = () => {
     <div>
       <div className="mainPageDiv">
         {main.map((champs) => (
-          <MainPage character={champs} key={champs.id} />
+          <MainPage character={champs} id={champs.id} key={champs.id} />
         ))}
       </div>
     </div>

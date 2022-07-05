@@ -29,8 +29,8 @@ def get_commts():
     return      '''
                 [{"id": 1, "name": "Caitlin", "pic": "/static/media/main/caitlin.jpg"}, 
                  {"id": 2, "name": "Diana", "pic": "/static/media/main/diana.jpg"},
-                 {"id": 2, "name": "Morgana", "pic": "/static/media/main/morgana.jpg"}, 
-                 {"id": 3, "name": "Nami", "pic": "/static/media/main/nami.jpg"}]
+                 {"id": 3, "name": "Morgana", "pic": "/static/media/main/morgana.jpg"}, 
+                 {"id": 4, "name": "Nami", "pic": "/static/media/main/nami.jpg"}]
                 '''
 
 @app.route('/apileague/get_champion/<id>')
