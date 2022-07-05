@@ -33,7 +33,15 @@ def get_commts():
                  {"id": 3, "name": "Nami", "pic": "/static/media/main/nami.jpg"}]
                 '''
 
-
+@app.route('/apileague/get_champion/<id>')
+def get_champion(id):
+    try:
+        val_id = int(id) - 1
+        lst_champions = ['Caitlin', 'Diana', 'Morgana', 'Nami']
+        rv = lst_champions[val_id]
+    except:
+        rv = 'None'
+    return  rv
 
 def log_console(ip, time, path):
     print(  '' + ip + '\t' + time + '\t' + '' + path)
