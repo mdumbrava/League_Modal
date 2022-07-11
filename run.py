@@ -9,17 +9,19 @@ from datetime                 import datetime
 from flask                    import make_response
 from functools                import wraps, update_wrapper
 
-
 app = Flask(
             __name__, 
             static_folder   = STATIC_FOLDER, 
             static_url_path = STATIC_PATH, 
             )
 
-
-app.config['SECRET_KEY'] = 'ABCDEFGIJKLMNOP'
+app.config['SECRET_KEY']                     = 'ABCDEFGIJKLMNOP'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///league_db.sql'
+app.config['SQLALCHEMY_DATABASE_URI']        = 'sqlite:///league_db.sql'
+# this helps with caching
+app.config['SEND_FILE_MAX_AGE_DEFAULT']      = 43200
+app.config['ENV']                            = MODE
+
 db = SQLAlchemy(app) 
 class Champion(db.Model):
     id   = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -49,9 +51,7 @@ class Cosmetics(db.Model):
 def check_admin():
     return ADMIN_ENABLE
 
-
 # Flask Admin Config
-# this will allow Champion table
 class ChampionView(ModelView):
     page_size            = 100
     can_delete           = True
@@ -89,7 +89,6 @@ class CosmeticsView(ModelView):
     def is_accessible(self):
         return check_admin()
 
-
 class MyAdminView(AdminIndexView):
     def is_accessible(self):
         return False
@@ -101,18 +100,9 @@ admin.add_view(AboutView    (About       , db.session))
 admin.add_view(AbilitiesView(Abilities   , db.session))
 admin.add_view(CosmeticsView(Cosmetics   , db.session))
 
-
-
 if not LOG_FLASK:
     log = logging.getLogger('werkzeug')
     log.disabled = True
-
-
-# this helps with caching
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 43200
-
-app.config['ENV'] = MODE
-
 
 @app.route('/')
 def index():
@@ -142,6 +132,7 @@ def get_champion(id):
         dct_about['class']       = data_about.clas
         dct_about['description'] = data_about.desc
         dct_about['pic']         = data_about.pic
+        lst_about = [dct_about]
         data_abilit = Abilities.query.filter_by(id_ch = val_id).all()
         lst_abilit = []
         for x in data_abilit:
@@ -159,7 +150,7 @@ def get_champion(id):
             dct_cosm['pic'] = x.pic
             lst_cosm.append(dct_cosm)
         dct_data = {}
-        dct_data['about']     = dct_about
+        dct_data['about']     = lst_about
         dct_data['abilities'] = lst_abilit
         dct_data['cosmetics'] = lst_cosm
         rv = json.dumps(dct_data)
