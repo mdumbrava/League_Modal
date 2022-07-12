@@ -14,7 +14,7 @@ const MainPage = ({ character, id }) => {
     let body = await response.json();
     setChampion(body);
     // setChampion("characterAPI");
-    console.log(champion);
+    // console.log(typeof champion);
   };
 
   return (
@@ -41,7 +41,7 @@ const MainPage = ({ character, id }) => {
             setIsOpen={setIsOpen}
             character={character}
             id={id}
-            champion={champion}
+            abilities={champion}
           ></Modal>
         </div>
       </div>

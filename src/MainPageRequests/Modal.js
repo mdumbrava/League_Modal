@@ -9,14 +9,15 @@ const Modal = ({
   setIsOpen,
   character,
   id,
-  champion,
+  abilities,
+  key,
 }) => {
   const handleClick = (e) => {
     setIsOpen(false);
   };
 
   if (!open) return null;
-
+  // console.log(typeof abilities);
   return ReactDOM.createPortal(
     <>
       <div className="overlay" onClick={handleClick} />
@@ -24,7 +25,14 @@ const Modal = ({
         {children}
         {character.name}
         <br />
-        {champion.about.class}
+
+        {abilities.map((ability) => (
+          <div key={ability.id}>
+            <h5> {ability.title}</h5>
+            <p>{ability.icon}</p>
+            <p> {ability.text}</p>
+          </div>
+        ))}
         <br />
         {/* <div>
           {champion.abilities.map((champsAbout) => (

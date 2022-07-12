@@ -157,7 +157,7 @@ def get_champion(id):
     except:
         rv = json.dumps({'value': 'No Value'})
     # return  json.dumps({'value': 'This Value Is From API: ', 'value1': 'This Second Value Is From API: '})
-    return dct_data
+    return json.dumps(lst_abilit)
 
 def log_console(ip, time, path):
     print(  '' + ip + '\t' + time + '\t' + '' + path)
