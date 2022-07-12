@@ -13,7 +13,8 @@ const MainPage = ({ character, id }) => {
     let response = await fetch("/apileague/get_champion/" + id.toString());
     let body = await response.json();
     setChampion(body);
-    console.log(champion.about);
+    // setChampion("characterAPI");
+    console.log(champion);
   };
 
   return (

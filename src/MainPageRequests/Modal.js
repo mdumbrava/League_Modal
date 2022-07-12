@@ -23,11 +23,14 @@ const Modal = ({
       <div className="modalPopUp">
         {children}
         {character.name}
-        <div>
+        <br />
+        {champion.about.class}
+        <br />
+        {/* <div>
           {champion.abilities.map((champsAbout) => (
             <p>{champsAbout.title}</p>
           ))}
-        </div>
+        </div> */}
       </div>
     </>,
     document.getElementById("portal")

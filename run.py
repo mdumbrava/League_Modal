@@ -150,13 +150,14 @@ def get_champion(id):
             dct_cosm['pic'] = x.pic
             lst_cosm.append(dct_cosm)
         dct_data = {}
-        dct_data['about']     = lst_about
+        dct_data['about']     = dct_about
         dct_data['abilities'] = lst_abilit
         dct_data['cosmetics'] = lst_cosm
         rv = json.dumps(dct_data)
     except:
-        rv = 'None'
-    return  rv
+        rv = json.dumps({'value': 'No Value'})
+    # return  json.dumps({'value': 'This Value Is From API: ', 'value1': 'This Second Value Is From API: '})
+    return dct_data
 
 def log_console(ip, time, path):
     print(  '' + ip + '\t' + time + '\t' + '' + path)
