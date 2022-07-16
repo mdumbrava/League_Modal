@@ -6,7 +6,7 @@
     background-color: rgb(233, 225, 236);
     padding: 20px;
     width: 60%;
-    height: 60%;
+    height: 68%;
     z-index: 1000;
   }
   
@@ -20,3 +20,130 @@
     z-index: 1000;
   }
   
+
+  *, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: #fff;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #f1f1f1;
+    /* margin: 100px auto 0; */
+    word-break:normal;
+    /* border: 1px solid rgba(0, 0, 0, 0.274); */
+  }
+  
+  .bloc-tabs {
+    display: flex;
+  }
+  .tabs {
+  
+    padding: 15px;
+    text-align: center;
+    width: 50%;
+    background: rgba(218, 206, 226, 0.075);
+    cursor: pointer;
+    border-bottom: 1px solid rgba(51, 46, 56, 0.274);
+    box-sizing: content-box;
+    position: relative;
+    outline: none;
+    font-size: 25px;
+
+  }
+  .tabs:not(:last-child){
+    border-right: 1px solid rgba(51, 46, 56, 0.274);
+  }
+  
+  .active-tabs  {
+    background: white;
+    border-bottom: 1px solid transparent;
+  }
+  
+  .active-tabs::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 2px);
+    height: 5px;
+    background: rgba(111, 103, 138, 0.3);
+  }
+  
+  
+  
+  button {
+    border: none;
+    
+  }
+  .content-tabs {
+    flex-grow : 1;
+  }
+  .content {
+    background: rgb(225, 223, 236);
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    font-size: 16px;
+
+  }
+  .content h2 {
+    padding: 0px 0 5px 0px;
+  }
+  .content hr {
+    width: 100%;
+    height: 2px;
+    background: rgb(118, 97, 156);
+    margin-bottom: 5px;
+  }
+  .content p {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+  }
+  .active-content {
+    display: block;
+  }
+
+  .flex-column {
+    display: flex;
+    margin-top: 10px;
+
+  }
+  .img-flex {
+    margin-right: 10px;
+
+    
+
+  }
+
+  .img-abc {
+    width: 75px;
+    height: 75px;
+  }
+
+  .img-model {
+    width: 350px ;
+    /* height: 75%; */
+  }
+
+  .img-skins {
+    width: 280px ;
+    margin: 10px;
+  }
+
+  .skins-div {
+    text-align: center;
+  }
