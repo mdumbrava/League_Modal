@@ -9,7 +9,9 @@ const Modal = ({
   setIsOpen,
   character,
   id,
+  about,
   abilities,
+  cosmetics,
   key,
 }) => {
   const handleClick = (e) => {
@@ -26,19 +28,23 @@ const Modal = ({
         {character.name}
         <br />
 
-        {abilities.map((ability) => (
+        {about.title}
+        <br />
+        {about.position}
+
+        {cosmetics.map((ability) => (
           <div key={ability.id}>
-            <h5> {ability.title}</h5>
-            <p>{ability.icon}</p>
-            <p> {ability.text}</p>
+            <h5> {ability.pic}</h5>
           </div>
         ))}
         <br />
-        {/* <div>
-          {champion.abilities.map((champsAbout) => (
-            <p>{champsAbout.title}</p>
-          ))}
-        </div> */}
+
+        {abilities.map((ability) => (
+          <div key={ability.id}>
+            <h5> {ability.icon}</h5>
+          </div>
+        ))}
+        <br />
       </div>
     </>,
     document.getElementById("portal")

@@ -120,8 +120,8 @@ def get_commts():
         lst_data.append(obj_champ)
     return json.dumps(lst_data)
 
-@app.route('/apileague/get_champion/<id>')
-def get_champion(id):
+@app.route('/apileague/get_about/<id>')
+def get_about(id):
     try:
         val_id = int(id)
         data_about  = About.query.filter_by(id_ch = val_id).first()
@@ -132,7 +132,15 @@ def get_champion(id):
         dct_about['class']       = data_about.clas
         dct_about['description'] = data_about.desc
         dct_about['pic']         = data_about.pic
-        lst_about = [dct_about]
+        rv = json.dumps(dct_about)
+    except:
+        rv = json.dumps({'value': 'No Value'})
+    return rv
+
+@app.route('/apileague/get_abilities/<id>')
+def get_abilities(id):
+    try:
+        val_id = int(id)
         data_abilit = Abilities.query.filter_by(id_ch = val_id).all()
         lst_abilit = []
         for x in data_abilit:
@@ -142,6 +150,15 @@ def get_champion(id):
             dct_abil['text']  = x.text
             dct_abil['title'] = x.title
             lst_abilit.append(dct_abil)
+        rv = json.dumps(lst_abilit)
+    except:
+        rv = json.dumps([{'value': 'No Value'}, {'value1': 'No Value1'}])
+    return rv
+
+@app.route('/apileague/get_cosmetics/<id>')
+def get_cosmetics(id):
+    try:
+        val_id = int(id)
         data_cosmet = Cosmetics.query.filter_by(id_ch = val_id).all()
         lst_cosm = []
         for x in data_cosmet:
@@ -149,15 +166,10 @@ def get_champion(id):
             dct_cosm['id']  = x.id
             dct_cosm['pic'] = x.pic
             lst_cosm.append(dct_cosm)
-        dct_data = {}
-        dct_data['about']     = dct_about
-        dct_data['abilities'] = lst_abilit
-        dct_data['cosmetics'] = lst_cosm
-        rv = json.dumps(dct_data)
+        rv = json.dumps(lst_cosm)
     except:
-        rv = json.dumps({'value': 'No Value'})
-    # return  json.dumps({'value': 'This Value Is From API: ', 'value1': 'This Second Value Is From API: '})
-    return json.dumps(lst_abilit)
+        rv = json.dumps([{'value': 'No Value'}, {'value1': 'No Value1'}])
+    return rv
 
 def log_console(ip, time, path):
     print(  '' + ip + '\t' + time + '\t' + '' + path)

@@ -5,16 +5,24 @@ import Modal from "./Modal";
 const MainPage = ({ character, id }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [champion, setChampion] = useState([]);
-  // fetch API
+  const [about, setAbout] = useState([]);
+  const [abilities, setAbilities] = useState([]);
+  const [cosmetics, setCosmetics] = useState([]);
 
-  const callChampion = async () => {
-    // console.log(param);
-    let response = await fetch("/apileague/get_champion/" + id.toString());
+  const callAbout = async () => {
+    let response = await fetch("/apileague/get_about/" + id.toString());
     let body = await response.json();
-    setChampion(body);
-    // setChampion("characterAPI");
-    // console.log(typeof champion);
+    setAbout(body);
+  };
+  const callAbilities = async () => {
+    let response = await fetch("/apileague/get_abilities/" + id.toString());
+    let body = await response.json();
+    setAbilities(body);
+  };
+  const callCosmetics = async () => {
+    let response = await fetch("/apileague/get_cosmetics/" + id.toString());
+    let body = await response.json();
+    setCosmetics(body);
   };
 
   return (
@@ -29,7 +37,9 @@ const MainPage = ({ character, id }) => {
             alt="pics"
             onClick={() => {
               setIsOpen(true);
-              callChampion();
+              callAbout();
+              callAbilities();
+              callCosmetics();
             }}
             key={id}
             src={character.pic}
@@ -37,11 +47,12 @@ const MainPage = ({ character, id }) => {
           <Modal
             open={isOpen}
             onClose={() => setIsOpen(false)}
-            // onOpen={() => callChampion()}
             setIsOpen={setIsOpen}
             character={character}
             id={id}
-            abilities={champion}
+            about={about}
+            abilities={abilities}
+            cosmetics={cosmetics}
           ></Modal>
         </div>
       </div>
