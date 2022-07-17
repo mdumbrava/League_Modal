@@ -1,8 +1,0 @@
-<div className="skins-div">
-  {cosmetics.map((splash) => (
-  <div key="{splash.id}">
-    <img className="img-model" src="{splash.pic}" alt="splash" />
-  </div>
-  ))}
-  <br />
-</div>

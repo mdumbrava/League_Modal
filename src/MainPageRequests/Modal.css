@@ -6,7 +6,7 @@
     background-color: rgb(233, 225, 236);
     padding: 20px;
     width: 60%;
-    height: 68%;
+    height: 74%;
     z-index: 1000;
   }
   
@@ -119,7 +119,7 @@
 
   .flex-column {
     display: flex;
-    margin-top: 10px;
+    margin-top: 20px;
 
   }
   .img-flex {
@@ -139,11 +139,21 @@
     /* height: 75%; */
   }
 
+  .skins-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-left: 85px;
+    /* background-color: blue; */
+    width: 85%;
+    text-align: center;
+
+  }
+
   .img-skins {
     width: 280px ;
     margin: 10px;
+
   }
 
-  .skins-div {
-    /* text-align: center; */
-  }

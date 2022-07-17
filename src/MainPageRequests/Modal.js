@@ -123,7 +123,7 @@ const Modal = ({
                 {cosmetics.map((splash) => (
                   <div key="{splash.id}">
                     <img
-                      className="img-model"
+                      className="img-skins"
                       src={splash.pic}
                       alt={splash.pic}
                     />
