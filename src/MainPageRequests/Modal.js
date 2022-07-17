@@ -90,7 +90,7 @@ const Modal = ({
               {/* <h2>Content 2</h2> */}
               <hr />
 
-              <p>
+              <div>
                 {abilities.map((ability) => (
                   <div key={ability.id}>
                     <div className="flex-column">
@@ -110,15 +110,25 @@ const Modal = ({
                 ))}
 
                 <br />
-              </p>
+              </div>
+            </div>
 
-              <div
-                className={
-                  toggleState === 3 ? "content  active-content" : "content"
-                }
-              >
-                {/* <h2>Content 3</h2> */}
-                <hr />
+            <div
+              className={
+                toggleState === 3 ? "content  active-content" : "content"
+              }
+            >
+              <hr />
+              <div className="skins-div">
+                {cosmetics.map((splash) => (
+                  <div key="{splash.id}">
+                    <img
+                      className="img-model"
+                      src={splash.pic}
+                      alt={splash.pic}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
