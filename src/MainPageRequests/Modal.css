@@ -135,6 +135,7 @@
   }
 
   .img-model {
+    height: 500px;
     width: 350px ;
     /* height: 75%; */
   }
@@ -143,10 +144,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    margin-left: 85px;
-    /* background-color: blue; */
-    width: 85%;
     text-align: center;
 
   }
