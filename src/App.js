@@ -7,8 +7,7 @@ function App() {
       <h1 className="mainPageTitle"> Welcome to League Modal</h1>
       <br />
       <br />
-      <br />
-      <br />
+
       <MainPageRequest />
     </div>
   );

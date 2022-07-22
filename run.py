@@ -110,7 +110,7 @@ def index():
 
 @app.route('/apileague/get_main')
 def get_commts():
-    data = Champion.query.all()
+    data = Champion.query.order_by(Champion.name.asc()).all()
     lst_data =[]
     for x in data:
         obj_champ = {}
