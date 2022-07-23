@@ -5,10 +5,14 @@
 .mainPageTitle {
   text-align: center;
     font-size: 50px;
-    color: rgb(98, 145, 185);
-    text-shadow: 1px 1px 2px rgb(5, 5, 5);
+    color: rgb(200, 196, 219);
+    text-shadow: 2px 2px 5px rgb(5, 5, 5);
 
 }
 
+.background {
+  background-color: rgba(94, 92, 104, 0.2);
+
+}
 
 

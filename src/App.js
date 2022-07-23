@@ -4,7 +4,10 @@ import MainPageRequest from "./MainPageRequests/MainPageRequests";
 function App() {
   return (
     <div className="App">
-      <h1 className="mainPageTitle"> Welcome to League Modal</h1>
+      <br />
+      <div className="background">
+        <h1 className="mainPageTitle"> League of Legends: Champion Edition</h1>
+      </div>
       <br />
       <br />
 

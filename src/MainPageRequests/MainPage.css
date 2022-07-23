@@ -7,12 +7,14 @@
     height: 300px;
     border-radius: 40px;
     cursor: pointer;
+    border-style: solid;
+    border-color: rgb(200, 196, 219);
 }
 
 .championTitle {
-    color: rgb(98, 145, 185);
-    font-size: 25px;
-    text-shadow: 1px 1px 2px rgb(5, 5, 5);
+    color: rgb(200, 196, 219);
+    font-size: 30px;
+    text-shadow: 2px 2px 5px rgb(5, 5, 5);
 }
 
 .buttonWrap{
