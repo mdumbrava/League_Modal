@@ -9,11 +9,7 @@ from datetime                 import datetime
 from flask                    import make_response
 from functools                import wraps, update_wrapper
 
-app = Flask(
-            __name__, 
-            static_folder   = STATIC_FOLDER, 
-            static_url_path = STATIC_PATH, 
-            )
+app = Flask(__name__)
 
 app.config['SECRET_KEY']                     = 'ABCDEFGIJKLMNOP'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -91,8 +87,8 @@ class CosmeticsView(ModelView):
 
 class MyAdminView(AdminIndexView):
     def is_accessible(self):
-        return False
-        # return check_admin()
+        # return False
+        return check_admin()
 
 admin = Admin(app, index_view=MyAdminView(), template_mode='bootstrap4', name='League Admin')
 admin.add_view(ChampionView (Champion    , db.session))
@@ -106,7 +102,7 @@ if not LOG_FLASK:
 
 @app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    return render_template('index.html')
 
 @app.route('/apileague/get_main')
 def get_commts():
